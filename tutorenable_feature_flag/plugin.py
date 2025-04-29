@@ -301,28 +301,26 @@ PLUGIN_SLOTS.add_items([
 
                 {/* --- Estructura del footer --- */}
                 <footer className="custom-footer" style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'auto 1fr',
+                  display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
                   borderTop: '1px solid #ccc',
                   padding: '1.5rem 2rem',
                   backgroundColor: '#fff',
                   fontSize: '0.9rem',
                 }}>
-
-                  {/* Enlaces + copyright centrados */}
-                  <div style={{ textAlign: 'center' }}>
-                    <nav style={{
-                      display: 'inline-flex',
-                      gap: '1.5rem',
-                      marginBottom: '0.5rem'
-                    }}>
-                      <a href="https://apps.app.academusdigital.com/learning/course/course-v1:Unimec+CBIBAD001+2025_ABR">Biblioteca</a>
-                      <a href="https://www.academusdigital.com/faq/">Preguntas Frecuentes</a>
-                      <a href="https://www.academusdigital.com/contact/">Contáctanos</a>
-                    </nav>
-                    <div>Copyrights ©2025. Academus Digital.</div>
-                  </div>
+                  {/* Enlaces centrados */}
+                  <nav style={{
+                    display: 'flex',
+                    gap: '1.5rem',
+                    marginBottom: '0.5rem',
+                  }}>
+                    <a href="…">Biblioteca</a>
+                    <a href="…">Preguntas Frecuentes</a>
+                    <a href="…">Contáctanos</a>
+                  </nav>
+                  {/* Copyright centrado */}
+                  <div>Copyrights ©2025. Academus Digital.</div>
                 </footer>
               </>
             ),
