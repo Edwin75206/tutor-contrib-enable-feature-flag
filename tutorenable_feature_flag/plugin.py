@@ -315,9 +315,9 @@ PLUGIN_SLOTS.add_items([
                     gap: '1.5rem',
                     marginBottom: '0.5rem',
                   }}>
-                    <a href="…">Biblioteca</a>
-                    <a href="…">Preguntas Frecuentes</a>
-                    <a href="…">Contáctanos</a>
+                    <a href="https://apps.app.academusdigital.com/learning/course/course-v1:Unimec+CBIBAD001+2025_ABR">Biblioteca</a>
+                    <a href="https://www.academusdigital.com/faq/">Preguntas Frecuentes</a>
+                    <a href="https://www.academusdigital.com/contact/">Contáctanos</a>
                   </nav>
                   {/* Copyright centrado */}
                   <div>Copyrights ©2025. Academus Digital.</div>
@@ -328,3 +328,75 @@ PLUGIN_SLOTS.add_items([
         }"""
     )
 ])
+PLUGIN_SLOTS.add_items([
+  (
+    "all",
+    "logo_slot",
+    """
+    {
+      op: PLUGIN_OPERATIONS.Hide,
+      widgetId: 'default_contents',
+    }"""
+  ),
+  (
+    "all",
+    "logo_slot",
+    """
+    {
+      op: PLUGIN_OPERATIONS.Insert,
+      widget: {
+        id: 'custom_logo_component',
+        type: DIRECT_PLUGIN,
+        RenderWidget: () => (
+          <img
+            src="https://raw.githubusercontent.com/Edwin75206/tutor-contrib-enable-feature-flag/refs/heads/main/images/logo.png"
+            alt="Academus Digital"
+            style={{
+              height: '40px',
+              width: 'auto',
+              marginRight: '1rem',   
+              alignSelf: 'center'   
+            }}
+          />
+        ),
+      },
+    }"""
+  )
+])
+
+
+PLUGIN_SLOTS.add_items([
+    (
+        "all",
+        "learning_user_menu_slot",
+        """
+        {
+          op: PLUGIN_OPERATIONS.Insert,
+          widget: {
+            id: 'custom_library_link',
+            type: DIRECT_PLUGIN,
+            priority: 20,
+            RenderWidget: () => (
+               <a
+                className="dropdown-item"
+                href="https://apps.app.academusdigital.com/learning/course/course-v1:Unimec+CBIBAD001+2025_ABR"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Biblioteca
+              </a>
+            ),
+          },
+        }
+        """
+    )
+])
+
+hooks.Filters.ENV_PATCHES.add_item(
+    (
+        "mfe-lms-common-settings",
+        """
+MFE_CONFIG["FAVICON_URL"] = "https://raw.githubusercontent.com/Edwin75206/tutor-contrib-enable-feature-flag/refs/heads/main/images/favicon.ico"
+"""
+    )
+)
